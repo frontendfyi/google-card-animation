@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    overflow-y: scroll;
+  }
+
+  html:has(.content-container) {
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  .card--to-right {
+    transform: rotate3d(1, 12, -3, 18deg) translate3d(210px, 0px, 90px);
+  }
+  .card--to-left {
+    transform: rotate3d(1, 12, -3, -18deg) translate3d(-210px, 0px, 90px);
+  }
+
+  .blob-left {
+    @apply after:absolute after:right-0 after:top-[-5%]
+    after:h-[110%] after:w-[50%] after:origin-right
+    after:scale-x-0 after:rounded-l-[100%] after:bg-yellow-400
+    after:transition-transform after:duration-1000 after:ease-out hover:after:scale-x-100;
+  }
+
+  .blob-right {
+    @apply after:absolute after:left-0 after:top-[-5%]
+    after:h-[110%] after:w-[50%] after:origin-left
+    after:scale-x-0 after:rounded-r-[100%] after:bg-[rgba(255,255,255,.3)]
+    after:transition-transform after:duration-1000 after:ease-out hover:after:scale-x-100;
+  }
+
+  .button-underline {
+    @apply after:absolute after:-bottom-2 after:left-0 after:h-[3px]
+    after:w-[calc(100%+30px)] after:translate-x-[--from] after:bg-current
+    after:transition-transform after:duration-500 after:ease-out
+    group-hover:after:translate-x-[--to] group-focus-visible:after:translate-x-[--to];
+  }
+}
