@@ -46,7 +46,6 @@ export default {
           },
         },
       },
-
       animation: {
         "card-visible": "card-visible 0.8s ease-in-out forwards",
         "card-hidden": "card-on-stack 0.8s ease-in-out forwards",
