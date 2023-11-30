@@ -86,10 +86,10 @@ const Card = ({ className, title }: { className?: string; title?: string }) => (
   >
     <div className="rounded-3xl bg-gray-300 [grid-area:1/1] [transform-style:preserve-3d] [backface-visibility:hidden] [transform:translateZ(-5px)] md:-mb-[5px] md:-mt-[5px] md:[transform:translateZ(-10px)]" />
     <div className="pointer-events-none absolute flex h-[40vw] w-[30vw] flex-col items-start rounded-3xl bg-gray-100 p-8 shadow-2xl [grid-area:1/1]">
-      <p className="mb-2 rounded-full bg-blue-400 px-5 py-1 text-sm text-white">
+      <p className="mb-2 rounded-full bg-blue-400 px-5 py-1 text-xs md:text-sm text-white">
         The web can
       </p>
-      {title && <p className="text-4xl font-medium leading-tight">{title}</p>}
+      {title && <p className="md:text-4xl font-medium leading-tight">{title}</p>}
 
       <div className="mx-auto mt-auto h-[40%] w-[80%] rounded-[80px] bg-blue-200 text-[0px]">
         The place for a nice illustration
@@ -111,7 +111,7 @@ const ActionButton = ({
   <button
     onClick={onClick}
     className={twMerge(
-      "relative flex w-full items-center justify-center text-4xl font-bold text-[rgba(0,0,0,.6)] transition-[transform,color] duration-500 focus-visible:text-white group-hover:text-white",
+      "relative flex w-full items-center justify-center md:text-4xl font-bold text-[rgba(0,0,0,.6)] transition-[transform,color] duration-500 focus-visible:text-white group-hover:text-white",
       direction === "right" &&
         "focus-visible:translate-x-36 group-hover:translate-x-36",
       direction === "left" &&
