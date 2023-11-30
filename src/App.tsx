@@ -20,10 +20,10 @@ function App() {
   return (
     <div className="grid">
       <div className="grid h-screen grid-cols-2 place-items-center overflow-hidden bg-blue-500 [grid-area:1/1] [perspective:500px]">
-        <div className="peer/next blob-left group relative flex h-full w-full pr-[80px]">
+        <div className="peer/next blob-left group relative flex h-full w-full items-end pb-8 pr-[80px] md:items-center md:pb-0">
           <ActionButton direction="left" text="Next card" />
         </div>
-        <div className="peer/show blob-right group relative flex h-full w-full pl-[80px]">
+        <div className="peer/show blob-right group relative flex h-full w-full items-end pb-8 pl-[80px] md:items-center md:pb-0">
           <ActionButton
             onClick={(ev) => {
               setAnimateState("opening");
@@ -56,7 +56,7 @@ function App() {
         <div className="content-container absolute inset-0 flex justify-center overflow-auto pb-20">
           <div
             className={twMerge(
-              "pointer-events-none relative top-[5vh] mb-20 min-h-screen w-[90vw] rounded-[4.5rem] bg-white px-16 py-16 opacity-0",
+              "pointer-events-none relative top-[5vh] mb-20 min-h-screen w-full bg-white px-16 py-16 opacity-0 md:rounded-[4.5rem]",
               animationState === "opening" && "animate-card-details",
               animationState === "closing" && "animate-card-details-hidden",
             )}
@@ -67,7 +67,7 @@ function App() {
             >
               👋
             </button>
-            <h1 className="text-[120px] leading-[1.1] [white-space:balance]">
+            <h1 className="text-4xl leading-[1.1] [white-space:balance] md:text-[120px]">
               Animate so many things with just CSS
             </h1>
           </div>
@@ -80,22 +80,24 @@ function App() {
 const Card = ({ className, title }: { className?: string; title?: string }) => (
   <div
     className={twMerge(
-      "pointer-events-none absolute grid h-[40vw] w-[30vw] transition-transform duration-1000 [transform-style:preserve-3d]",
+      "pointer-events-none absolute grid aspect-[3/4] w-[65vw] transition-transform duration-1000 [transform-style:preserve-3d] md:w-[30vw]",
       className,
     )}
   >
-    <div className="rounded-3xl bg-gray-300 [grid-area:1/1] [transform-style:preserve-3d] [backface-visibility:hidden] [transform:translateZ(-5px)] md:-mb-[5px] md:-mt-[5px] md:[transform:translateZ(-10px)]" />
-    <div className="pointer-events-none absolute flex h-[40vw] w-[30vw] flex-col items-start rounded-3xl bg-gray-100 p-8 shadow-2xl [grid-area:1/1]">
-      <p className="mb-2 rounded-full bg-blue-400 px-5 py-1 text-xs md:text-sm text-white">
+    <div className="pointer-events-none rounded-3xl bg-gray-300 [grid-area:1/1] [transform-style:preserve-3d] [backface-visibility:hidden] [transform:translateZ(-5px)] md:-mb-[5px] md:-mt-[5px] md:[transform:translateZ(-10px)]" />
+    <div className="pointer-events-none absolute flex h-full w-full flex-col items-start rounded-3xl bg-gray-100 p-8 shadow-2xl [grid-area:1/1]">
+      <p className="mb-2 rounded-full bg-blue-400 px-5 py-1 text-xs text-white md:text-sm">
         The web can
       </p>
-      {title && <p className="md:text-4xl font-medium leading-tight">{title}</p>}
+      {title && (
+        <p className="font-medium leading-tight md:text-4xl">{title}</p>
+      )}
 
       <div className="mx-auto mt-auto h-[40%] w-[80%] rounded-[80px] bg-blue-200 text-[0px]">
         The place for a nice illustration
       </div>
     </div>
-    <div className="rounded-3xl bg-white [grid-area:1/1] [backface-visibility:hidden] [transform:rotateY(180deg)]" />
+    <div className="pointer-events-none rounded-3xl bg-white [grid-area:1/1] [backface-visibility:hidden] [transform:rotateY(180deg)]" />
   </div>
 );
 
@@ -111,7 +113,7 @@ const ActionButton = ({
   <button
     onClick={onClick}
     className={twMerge(
-      "relative flex w-full items-center justify-center md:text-4xl font-bold text-[rgba(0,0,0,.6)] transition-[transform,color] duration-500 focus-visible:text-white group-hover:text-white",
+      "relative flex w-full items-center justify-center font-bold text-[rgba(0,0,0,.6)] transition-[transform,color] duration-500 focus-visible:text-white group-hover:text-white md:text-4xl",
       direction === "right" &&
         "focus-visible:translate-x-36 group-hover:translate-x-36",
       direction === "left" &&
