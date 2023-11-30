@@ -4,7 +4,13 @@
   "activeFile": "src/App.tsx",
   "template": "vite-react-ts",
   "options": {
-    "tailwind": true
+    "tailwind": true,
+    "tailwindSafeList": [
+      "animate-card-visible",
+      "animate-card-hidden",
+      "animate-card-details",
+      "animate-card-details-hidden"
+    ]
   },
   "dependencies": {
     "react": "latest",
